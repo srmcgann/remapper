@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=800,initial-scale=1.5">
     <title>equirectangular re-mapper</title>
-    <link rel="icon" href="/favicon.png">
+    <link rel="icon" href="./favicon.png">
     <style>
       body, html{
         background: #000;
@@ -49,7 +49,7 @@
       
       
       import * as Coordinates from
-      "./coordinates.min.js"
+      "./coordinates.js"
     
       var l = location.href.toLowerCase().split('url=')
       var url
@@ -96,7 +96,7 @@
       if(l.length>1){
         ambientLight = +location.href.toLowerCase().split('ambientlight=')[1].split('&')[0]
       }else{
-        ambientLight= .42
+        ambientLight= .4
       }
       
       var rendererOptions = {
@@ -132,7 +132,7 @@
         ]
         shader = await Coordinates.BasicShader(renderer, shaderOptions)
 
-
+        console.log(muted)
         geoOptions = {
           shapeType: 'custom shape',
           name: 'background',
