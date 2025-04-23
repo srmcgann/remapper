@@ -67,6 +67,14 @@
         plugin = true
       }
       
+      var l = location.href.toLowerCase().split('muted=')
+      var muted
+      if(l.length>1){
+        muted = !!eval(location.href.toLowerCase().split('muted=')[1].split('&')[0])
+      }else{
+        muted = true
+      }
+      
       var l = location.href.toLowerCase().split('playbackspeed=')
       var playbackSpeed
       if(l.length>1){
@@ -108,12 +116,6 @@
       var shapes = []
       var resourceType
 
-
-      var refTexture = url
-      var shader, geoOptions
-      var urlParts, probe
-      
-
       var launch = async (width, height) => {
         var ar = width / height
         width = Math.min(1e3, width)
@@ -137,6 +139,7 @@
           equirectangular: true,
           url: 'https://srmcgann.github.io/Coordinates/custom shapes/icosahedron_sphere_medres.json',
           map: refTexture,
+          muted,
           playbackSpeed,
           color: 0xffffff,
           colorMix: 0,
